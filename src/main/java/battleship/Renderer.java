@@ -11,9 +11,9 @@ public class Renderer {
 
     private final static String[] LETTERS = {"А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "К"};
     private final static Map<Cell, String>
-        PLAYER_CELLS = Map.of(Cell.EMPTY, "_", Cell.SHIP, "#", Cell.HIT, "X", Cell.MISS, "*");
+        PLAYER_CELLS = Map.of(Cell.EMPTY, "_", Cell.SHIP, "\033[34m#\033[0m", Cell.HIT, "\033[31mX\033[0m", Cell.MISS, "\033[33m*\033[0m");
     private final static Map<Cell, String>
-        OPPONENT_CELLS = Map.of(Cell.EMPTY, "_", Cell.SHIP, "_", Cell.HIT, "X", Cell.MISS, "*");
+        OPPONENT_CELLS = Map.of(Cell.EMPTY, "_", Cell.SHIP, "_", Cell.HIT, "\033[31mX\033[0m", Cell.MISS, "\033[33m*\033[0m");
 
     public String renderGame(Game game, UUID player, UUID opponent) {
         Field playerField = game.getField(player);
